@@ -1,44 +1,32 @@
 #include <iostream>
 
-// Function to heapify a subtree rooted at index i
-void heapify(int arr[], int n, int i) {
-    int largest = i;        // Initialize largest as root
-    int left = 2 * i + 1;   // Left child
-    int right = 2 * i + 2;  // Right child
+void sift(int arr[], int left, int right) {
+    int i = left, j = 2 * i + 1;
+    int x = arr[i];
 
-    // If left child is larger than root
-    if (left < n && arr[left] > arr[largest]) {
-        largest = left;
+    while(j <= right) {
+        while(j < right && arr[j] < arr[j + 1]) j++;
+        if(x >= a[i]) break;
+        a[i] = a[j];
+        i = j;
+        j = 2 * i + 1;
     }
 
-    // If right child is larger than the largest so far
-    if (right < n && arr[right] > arr[largest]) {
-        largest = right;
-    }
-
-    // If the largest is not root
-    if (largest != i) {
-        std::swap(arr[i], arr[largest]);
-
-        // Recursively heapify the affected subtree
-        heapify(arr, n, largest);
-    }
+    arr[i] = x;
 }
 
-// Main function to perform heap sort
 void heapSort(int arr[], int n) {
-    // Build a max heap
-    for (int i = n / 2 - 1; i >= 0; i--) {
-        heapify(arr, n, i);
+    for (int left = n / 2 - 1; i >= 0; i--) {
+        heapify(arr, left, n - 1);
     }
 
     // Extract elements from heap one by one
-    for (int i = n - 1; i > 0; i--) {
-        // Move current root to end
-        std::swap(arr[0], arr[i]);
+    for (int right = n - 1; right > 0; i--) {
+        int temp = arr[0];
+        arr[right] = arr[0];
+        arr[0] = temp;
 
-        // Heapify the reduced heap
-        heapify(arr, i, 0);
+        sift(arr, 0, right - 1);
     }
 }
 
