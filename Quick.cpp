@@ -1,33 +1,29 @@
 #include <iostream>
 
-// Partition function to arrange elements around the pivot
-int partition(int arr[], int low, int high) {
-    int pivot = arr[high]; // Choose the last element as pivot
-    int i = low - 1;       // Index of smaller element
+int partition(int arr[], int left, int right) {
+    int pivot = arr[left];
+    int i = left, j = right + 1;
 
-    for (int j = low; j < high; j++) {
-        // If current element is smaller than or equal to pivot
-        if (arr[j] <= pivot) {
-            i++;
-            std::swap(arr[i], arr[j]); // Swap arr[i] and arr[j]
-        }
+    while(true) {
+        while(++i <= right && arr[i] < pivot);
+        while(--j >= left && arr[j] > pivot);
+        if(i >= j) break;
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
-    // Swap the pivot element with the element at i+1
-    std::swap(arr[i + 1], arr[high]);
-    return i + 1; // Return the partition index
+    int temp = arr[left];
+    arr[left] = arr[j];
+
+    return j;
 }
 
-// QuickSort function
-void quickSort(int arr[], int low, int high) {
-    if (low < high) {
-        // Find the partition index
-        int pi = partition(arr, low, high);
-
-        // Recursively sort elements before and after the partition
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
-    }
+void quickSort(int arr[], int n, int left, int right) {
+    if(left < right) {
+        int p = partition(arr, left, right);
+        quickSort(arr, left, p - 1):
+        quickSort(arr, p + 1, right);
 }
 
 int main() {
