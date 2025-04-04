@@ -2,16 +2,14 @@
 
 void SelectionSort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
-        int minIndex = i; // Assume the current element is the smallest
+        int minIndex = i;
 
-        // Find the smallest element in the unsorted section
         for (int j = i + 1; j < n; j++) {
             if (arr[j] < arr[minIndex]) {
-                minIndex = j; // Update the index of the smallest element
+                minIndex = j; 
             }
         }
 
-        // Swap the smallest element with the element at index i
         if (minIndex != i) {
             int temp = arr[i];
             arr[i] = arr[minIndex];
