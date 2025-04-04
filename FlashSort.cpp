@@ -3,7 +3,6 @@
 
 using namespace std;
 
-// Function to find the minimum and maximum values in an array
 void findMinMax(const vector<int>& arr, int& minVal, int& maxVal) {
     minVal = arr[0];
     maxVal = arr[0];
