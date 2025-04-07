@@ -1,7 +1,8 @@
 #include <iostream>
 
 void sift(int arr[], int left, int right) {
-    int i = left, j = 2 * i + 1;
+    int i = left;
+    int j = 2 * i + 1;
     int x = arr[i];
 
     while(j <= right) {
