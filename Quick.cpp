@@ -22,8 +22,8 @@ int partition(int arr[], int left, int right) {
 void quickSort(int arr[], int n, int left, int right) {
     if(left < right) {
         int p = partition(arr, left, right);
-        quickSort(arr, left, p - 1):
-        quickSort(arr, p + 1, right);
+        quickSort(arr, n, left, p - 1):
+        quickSort(arr, n, p + 1, right);
 }
 
 int main() {
@@ -36,7 +36,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    quickSort(arr, 0, n - 1);
+    quickSort(arr, n, 0, n - 1);
 
     std::cout << "Sorted array: ";
     for (int i = 0; i < n; i++) {
