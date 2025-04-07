@@ -17,7 +17,7 @@ void sift(int arr[], int left, int right) {
 }
 
 void heapSort(int arr[], int n) {
-    for (int left = n / 2 - 1; i >= 0; i--) {
+    for (int left = n / 2 - 1; left >= 0; left--) {
         heapify(arr, left, n - 1);
     }
 
