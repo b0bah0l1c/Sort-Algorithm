@@ -38,7 +38,7 @@ void sort(vector<int>& arr, int k) {
     vector<int> output(arr.size());
     int count[10] = {0};
     
-    for(int num : arr) count[digit(num, k)]++;
+    for(int num : arr) count[digit(arr[num], k)]++;
     for(int i = 1; i < 10; i++) count[i] += count[i - 1];
     for(int i = arr.size() - 1; i >= 0; i--) {
         int j = digit(arr[i], k);
