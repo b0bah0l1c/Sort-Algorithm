@@ -7,7 +7,7 @@ void sift(int arr[], int left, int right) {
 
     while(j <= right) {
         while(j < right && arr[j] < arr[j + 1]) j++;
-        if(x >= a[i]) break;
+        if(x >= a[j]) break;
         a[i] = a[j];
         i = j;
         j = 2 * i + 1;
@@ -22,7 +22,7 @@ void heapSort(int arr[], int n) {
     }
 
     // Extract elements from heap one by one
-    for (int right = n - 1; right > 0; i--) {
+    for (int right = n - 1; right > 0; right--) {
         int temp = arr[0];
         arr[right] = arr[0];
         arr[0] = temp;
